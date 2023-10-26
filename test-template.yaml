@@ -60,6 +60,20 @@ spec:
       input:
         targetPath: ./community
         url: https://github.com/backstage/community/tree/main/backstage-community-sessions
+    - id: create-catalog-file
+      name: Create Catalog File
+      action: template:file
+      input:
+      path: ./catalog-info.yaml
+      content: |
+         apiVersion: backstage.io/v1beta1
+         kind: Component
+         metadata:
+            name: ${{ parameters.name }}
+            description: A description of the ${{ parameters.name }} component
+         spec:
+            type: service
+            owner: ${{ parameters.owner }}
 
     - id: publish
       name: Publish

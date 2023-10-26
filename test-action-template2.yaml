@@ -53,7 +53,21 @@ spec:
         values:
           name: ${{ parameters.name }}
           owner: ${{ parameters.owner }}
-
+    - id: create-catalog-file
+      name: Create Catalog File
+      action: catalog:write
+      input:
+        entity:
+           apiVersion: backstage.io/v1alpha1
+           kind: Component
+           metadata:
+              name: {{ parameters.name }}
+              annotations: {}
+              description: A description of the ${{ parameters.name }} component
+           spec:
+             type: service
+             lifecycle: production
+             owner: ${{ parameters.owner }}
     - id: fetch-docs
       name: Fetch Docs
       action: fetch:plain

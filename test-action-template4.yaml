@@ -3,7 +3,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 # some metadata about the template itself
 metadata:
-  name: v1beta3-demo-3
+  name: v1beta3-demo-4
   title: Test Action template
   description: scaffolder v1beta3 template demo
 spec:
@@ -61,7 +61,7 @@ spec:
            apiVersion: backstage.io/v1alpha1
            kind: Component
            metadata:
-              name: {{ parameters.name }}
+              name: ${{ parameters.name }}
               annotations: {}
               description: A description of the ${{ parameters.name }} component
            spec:
